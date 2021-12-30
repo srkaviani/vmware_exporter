@@ -8,26 +8,30 @@ Get VMware vCenter information:
 - Datastore size and other stuff
 - Snapshot Unix timestamp creation date
 
+## Requirements
+
+- Docker
+- Docker-compose
+
+
 ## Usage
 
 
-use the following docker command:
+Clone repository in /opt/prometheus/ (If Doesn't Exist you need to create it)
 
 ```
-docker run -it --rm  -p 9272:9272 -e VSPHERE_USER=${VSPHERE_USERNAME} -e VSPHERE_PASSWORD=${VSPHERE_PASSWORD} -e VSPHERE_HOST=${VSPHERE_HOST} -e VSPHERE_IGNORE_SSL=True -e VSPHERE_SPECS_SIZE=2000 --name vmware_exporter soroush7339/vmware_exporter
+cd /opt/prometheus/
+git clone https://github.com/srkaviani/vmware_exporter
+cd /opt/prometheus/vmware_exporter
 ```
 
-When using containers combined with `--env-file` flag, please use capital letters to set bolleans, for example:
+Enter Your targets config in config.yml
+```
+cd /opt/prometheus/
+nano config.yml
+```
 
-```
-$ podman run -it --rm -p 9272:9272 --name vmware_exporter --env-file config.env pryorda/vmware_exporter
-$ cat config.env
-VSPHERE_USER=administrator@vsphere.my.domain.com
-VSPHERE_PASSWORD=Secure-Pass
-VSPHERE_HOST=192.168.0.1
-VSPHERE_IGNORE_SSL=TRUE
-VSPHERE_SPECS_SIZE=2000
-```
+
 
 
 ### Configuration and limiting data collection
