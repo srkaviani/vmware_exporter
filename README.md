@@ -8,25 +8,10 @@ Get VMware vCenter information:
 - Datastore size and other stuff
 - Snapshot Unix timestamp creation date
 
-## Badges
-![Docker Stars](https://img.shields.io/docker/stars/pryorda/vmware_exporter.svg)
-![Docker Pulls](https://img.shields.io/docker/pulls/pryorda/vmware_exporter.svg)
-![Docker Automated](https://img.shields.io/docker/automated/pryorda/vmware_exporter.svg)
-
-[![Travis Build Status](https://travis-ci.org/pryorda/vmware_exporter.svg?branch=master)](https://travis-ci.org/pryorda/vmware_exporter)
-![Docker Build](https://img.shields.io/docker/build/pryorda/vmware_exporter.svg)
-[![Join the chat at https://gitter.im/vmware_exporter/community](https://badges.gitter.im/vmware_exporter/community.svg)](https://gitter.im/vmware_exporter/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 ## Usage
 
-*Requires Python >= 3.6*
 
-- Install with `$ python setup.py install` or via pip `$ pip install vmware_exporter`. The docker command below is preferred.
-- Create `config.yml` based on the configuration section. Some variables can be passed as environment variables
-- Run `$ vmware_exporter -c /path/to/your/config`
-- Go to http://localhost:9272/metrics?vsphere_host=vcenter.company.com to see metrics
-
-Alternatively, if you don't wish to install the package, run it using `$ vmware_exporter/vmware_exporter.py` or use the following docker command:
+use the following docker command:
 
 ```
 docker run -it --rm  -p 9272:9272 -e VSPHERE_USER=${VSPHERE_USERNAME} -e VSPHERE_PASSWORD=${VSPHERE_PASSWORD} -e VSPHERE_HOST=${VSPHERE_HOST} -e VSPHERE_IGNORE_SSL=True -e VSPHERE_SPECS_SIZE=2000 --name vmware_exporter pryorda/vmware_exporter
