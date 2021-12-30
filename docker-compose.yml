@@ -2,16 +2,13 @@ version: '2'
 services:
   vmware_exporter:
     # Using the latest tag, but you can use vers(v0.9.5 for example
-    image: pryorda/vmware_exporter:latest
+    image: soroush7339/vmware_exporter:latest
     ports:
-        - "9275:9272"
+        - "9272:9272"
     environment:
-        VSPHERE_HOST: "vcenter-host"
-        VSPHERE_USER: "username"
-        VSPHERE_PASSWORD: "P@ssw0rd"
         VSPHERE_IGNORE_SSL: "True"
-        VSPHERE_COLLECT_VMS: "False"
-        VSPHERE_COLLECT_VMGUESTS: "False"
+    volumes:
+        - /opt/prometheus/vmware_exporter/config.yml:/opt/vmware_exporter/config.yml
     restart: always
     #FOR DEBUG UNCOMMENT NEXT LINE
     #command: ["-l","DEBUG"]
