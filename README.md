@@ -47,6 +47,33 @@ cd /opt/prometheus/vmware_exporter
 docker-compose down
 ```
 
+
+Add this Lines to prometheus.yml:
+```
+  - job_name: 'vmware-vcenter'
+    scrape_interval: 1m
+    scrape_timeout:  1m
+    static_configs:
+      - targets:
+        - myvcenter.local
+    metrics_path: /metrics
+    params:
+      section: [vcenter]
+
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: prometheus_ip:9272
+```
+
+Reload Prometheus
+
+Import Grafana Dashboards.
+
+
 If you make changes in config.yml later you need to restart docker container to apply changes.
 
 
