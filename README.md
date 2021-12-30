@@ -14,6 +14,9 @@ Get VMware vCenter information:
 - Docker-compose
 
 
+# Docker Repository
+https://hub.docker.com/r/soroush7339/vmware_exporter
+
 ## Usage
 
 
@@ -27,10 +30,19 @@ cd /opt/prometheus/vmware_exporter
 
 Enter Your targets config in config.yml
 ```
-cd /opt/prometheus/
+cd /opt/prometheus/vmware_exporter
 nano config.yml
 ```
 
+Run With Docker-compose
+
+```
+cd /opt/prometheus/vmware_exporter
+docker-compose up -d
+```
+
+
+If you make changes in config.yml later you need to restart docker container to apply changes.
 
 
 
@@ -251,14 +263,9 @@ The initial code is mainly inspired by:
 - https://github.com/vmware/pyvmomi-community-samples
 - https://github.com/jbidinger/pyvmomi-tools
 
-Forked from https://github.com/rverchere/vmware_exporter. I removed the fork so that I could do searching and everything.
-
+Forked from https://github.com/pryorda/vmware_exporter . 
 ## Maintainer
 
-Daniel Pryor [pryorda](https://github.com/pryorda)
+Soroush Kaviani [srkaviani](https://github.com/srkaviani)
 
-## License
 
-See LICENSE file
-
-[![Known Vulnerabilities](https://snyk.io/test/github/rmontenegroo/vmware_exporter/badge.svg?targetFile=requirements.txt)](https://snyk.io/test/github/rmontenegroo/vmware_exporter?targetFile=requirements.txt)
