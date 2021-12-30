@@ -41,6 +41,11 @@ cd /opt/prometheus/vmware_exporter
 docker-compose up -d
 ```
 
+Stop Container
+```
+cd /opt/prometheus/vmware_exporter
+docker-compose down
+```
 
 If you make changes in config.yml later you need to restart docker container to apply changes.
 
