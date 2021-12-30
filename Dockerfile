@@ -1,7 +1,7 @@
 FROM python:3.7-alpine
 
-LABEL MAINTAINER="Soroush Kaviani <daniel@pryorda.net>"
-LABEL NAME=vmware_exporter_soroush
+LABEL MAINTAINER="Soroush Kaviani <soroush7339@gmail.com>"
+LABEL NAME=vmware_exporter
 
 WORKDIR /opt/vmware_exporter/
 COPY . /opt/vmware_exporter/
